@@ -47,11 +47,11 @@ public class Block : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
-    {
+    {      
         GameObject brek = Instantiate(Effect, transform.position, transform.rotation);
         em = brek.GetComponent<ParticleSystem>();
         em.startColor = color;

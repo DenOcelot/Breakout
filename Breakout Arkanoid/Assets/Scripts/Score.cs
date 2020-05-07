@@ -13,8 +13,11 @@ public class Score : MonoBehaviour
     int slowTimes;
     bool set;
     public bool slowMo;
+    public GameObject win;
+    public GameObject lose;
     GameObject[] TotalBlocks;
     GameObject[] Blocks;
+    GameObject[] Balls;
 
     TextMeshProUGUI text;
 
@@ -38,6 +41,8 @@ public class Score : MonoBehaviour
         timeM = GetComponent<TimeManager>();
         reverb = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioReverbFilter>();
         lowPass = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioLowPassFilter>();
+        //win = GameObject.FindGameObjectWithTag("win");
+        //lose = GameObject.FindGameObjectWithTag("lose");
 
         volume = gameObject.GetComponent<PostProcessVolume>();
 
@@ -49,16 +54,24 @@ public class Score : MonoBehaviour
     void Update()
     {
         Blocks = GameObject.FindGameObjectsWithTag("Block");
+        Balls = GameObject.FindGameObjectsWithTag("Ball");
         if (!set)
         {
             TotalBlocks = GameObject.FindGameObjectsWithTag("Block");
             set = true;
-        }      
-        if(Blocks.Length == 0)
+        }
+        if (Blocks.Length == 0 && Balls.Length != 0)
         {
-            score =+ 32000;
-        }       
-        score = (TotalBlocks.Length - Blocks.Length) * 1000 - slowCost * slowTimes; 
+            win.SetActive(true);
+            score = +32000;
+        }
+        else{ 
+        score = (TotalBlocks.Length - Blocks.Length) * 1000 - slowCost * slowTimes;
+        }
+        if(Balls.Length == 0 && Blocks.Length != 0)
+        {
+            lose.SetActive(true);
+        }
         text.text = score.ToString();
         if (slowMo)
         {

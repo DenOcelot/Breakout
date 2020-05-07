@@ -12,6 +12,8 @@ TagManager:
   - Score
   - +
   - '-'
+  - win
+  - lose
   layers:
   - Default
   - TransparentFX

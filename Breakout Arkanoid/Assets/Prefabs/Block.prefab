@@ -123,6 +123,7 @@ MonoBehaviour:
   Effect: {fileID: 7450523422462444355, guid: bf1cf5da1d67cd04aa3cfa623379e21d, type: 3}
   plus: {fileID: 4383912879882047637, guid: 095fd968ab084c343bb092533810e96b, type: 3}
   minus: {fileID: 6004239252599372119, guid: a7c8dd0bbc3eb804ebae5ab6b700c9ee, type: 3}
+  ball: {fileID: 2980228323371159221, guid: eeae5bc947c590a4a8bd087201f8db05, type: 3}
 --- !u!108 &3626720533792347863
 Light:
   m_ObjectHideFlags: 0
