@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5e264bf00905d99489cafa0164da0f73, type: 3}
-  m_Color: {r: 0.9490196, g: 0.050980393, b: 0.050980393, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,7 +123,6 @@ MonoBehaviour:
   Effect: {fileID: 7450523422462444355, guid: bf1cf5da1d67cd04aa3cfa623379e21d, type: 3}
   plus: {fileID: 4383912879882047637, guid: 095fd968ab084c343bb092533810e96b, type: 3}
   minus: {fileID: 6004239252599372119, guid: a7c8dd0bbc3eb804ebae5ab6b700c9ee, type: 3}
-  ball: {fileID: 2980228323371159221, guid: eeae5bc947c590a4a8bd087201f8db05, type: 3}
 --- !u!108 &3626720533792347863
 Light:
   m_ObjectHideFlags: 0

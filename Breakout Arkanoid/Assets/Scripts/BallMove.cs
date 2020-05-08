@@ -11,15 +11,24 @@ public class BallMove : MonoBehaviour
     private Light light;
     private Vector2 moveVelocity;
 
+    bool set;
+
     // Start is called before the first frame update
     void Start()
     {
         transform.Rotate(0f, 0.0f, Random.Range(-20f,20f));
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.up * speed);
         sprite = GetComponent<SpriteRenderer>();
         light = GetComponent<Light>();
-        transform.Rotate(0f, 0.0f, 0);
+    }
+
+    void Update()
+    {
+        if (!set)
+        {
+            rb.AddForce(transform.up * speed);
+            set = true;
+        }       
     }
 
     void OnCollisionEnter2D(Collision2D collision)

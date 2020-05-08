@@ -9,10 +9,13 @@ public class PaddleMove : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
     private SpriteRenderer sprite;
+    AudioSource pickup;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        pickup = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
     }
@@ -20,7 +23,7 @@ public class PaddleMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"),0);
+        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), 0);
         moveVelocity = moveInput * speed;
 
 
@@ -40,16 +43,20 @@ public class PaddleMove : MonoBehaviour
             sprite.color = renderer.color;
         }
 
-        if(collision.gameObject.tag == "+")
+        if (collision.gameObject.tag == "+")
         {
             transform.localScale += new Vector3(0.2f, 0.0f, 0.0f); ;
             Destroy(collision.gameObject);
+            pickup.pitch = 1f;
+            pickup.Play();
         }
 
         if (collision.gameObject.tag == "-")
         {
             transform.localScale -= new Vector3(0.2f, 0.0f, 0.0f); ;
             Destroy(collision.gameObject);
+            pickup.pitch = 0.7f;
+            pickup.Play();
         }
     }
 
